@@ -1,4 +1,3 @@
-```md
 # PR – Greener Backend Services
 
 Cette Pull Request doit respecter les règles définies dans le **Plan Qualité Greener**.
@@ -21,20 +20,17 @@ Explique brièvement ce que fait cette PR :
 ## Format de branche
 
 Les branches doivent respecter la convention suivante :
-```
 
+```
 feature/[TRIGRAM]-[ID_TICKET]-[description]
 fix/[TRIGRAM]-[ID_TICKET]-[description]
 refactor/[TRIGRAM]-[ID_TICKET]-[description]
-
 ```
 
 Exemple :
 
 ```
-
 feature/LBT-12-scan-image-ai
-
 ```
 
 ---
@@ -44,9 +40,7 @@ feature/LBT-12-scan-image-ai
 Format :
 
 ```
-
 <type>(scope): description
-
 ```
 
 Types autorisés :
@@ -76,11 +70,9 @@ Principales règles :
 Exemples :
 
 ```
-
 user_router.py
 waste_model.py
 ai_processing_service.py
-
 ```
 
 ---
@@ -94,4 +86,3 @@ Avant de demander une review :
 - [ ] La CI est verte
 - [ ] Les tests nécessaires ont été ajoutés
 - [ ] Le code a été testé localement
-```
