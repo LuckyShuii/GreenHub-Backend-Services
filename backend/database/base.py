@@ -1,9 +1,4 @@
-# db/deps.py
-from session import SessionLocal
+# database/base.py
+from sqlalchemy.orm import declarative_base
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+Base = declarative_base()
