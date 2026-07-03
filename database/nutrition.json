@@ -1,0 +1,3111 @@
+[
+  {
+    "nom": "amande",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "septembre"
+    ],
+    "pays_production": [
+      "USA (Californie)",
+      "Espagne",
+      "Australie",
+      "Iran",
+      "Maroc"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 579.0,
+      "proteines_g": 21.0,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "E"
+      ],
+      "mineraux": [
+        "magnesium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "12 mois fermee",
+      "duree_frigo": null,
+      "duree_congele": "24 mois"
+    },
+    "bienfaits_sante": [
+      "Cholesterol",
+      "satiete",
+      "sante cardiaque"
+    ],
+    "allergenes": [
+      "Fruits a coque (allergene majeur UE)"
+    ]
+  },
+  {
+    "nom": "avocat",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Mexique",
+      "Perou",
+      "Rep. dominicaine",
+      "Colombie",
+      "Indonesie"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 160.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "E"
+      ],
+      "mineraux": [
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 j muri",
+      "duree_frigo": "7 j",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Cardiovasculaire",
+      "anti-inflammatoire",
+      "satiete"
+    ],
+    "allergenes": [
+      "Latex-fruit syndrome (rare)"
+    ]
+  },
+  {
+    "nom": "cerise",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mai",
+      "juin"
+    ],
+    "pays_production": [
+      "Turquie",
+      "USA",
+      "Iran",
+      "Italie",
+      "Espagne",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 63.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": "4-7 j",
+      "duree_congele": "6-12 mois"
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "anti-inflammatoire",
+      "sommeil"
+    ],
+    "allergenes": [
+      "Syndrome oral (Rosacees, LTP)"
+    ]
+  },
+  {
+    "nom": "citron",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "mai",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Inde",
+      "Mexique",
+      "Chine",
+      "Argentine",
+      "Espagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 29.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 mois",
+      "duree_frigo": "1 mois",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "digestion",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "coing",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "septembre",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Turquie",
+      "Chine",
+      "Iran",
+      "Maroc",
+      "Argentine"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 57.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2 mois",
+      "duree_frigo": "2 mois",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "antioxydant"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "figue",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre"
+    ],
+    "pays_production": [
+      "Turquie",
+      "Egypte",
+      "Maroc",
+      "Algerie",
+      "Iran"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 74.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K"
+      ],
+      "mineraux": [
+        "potassium",
+        "calcium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": "2-3 j",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "os",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP",
+      "latex"
+    ]
+  },
+  {
+    "nom": "framboise",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "Russie",
+      "Mexique",
+      "Pologne",
+      "Serbie",
+      "USA"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 52.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": 6.5,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "manganese"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": "12 mois"
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Histamino-liberateur"
+    ]
+  },
+  {
+    "nom": "fruits-a-coque",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "octobre"
+    ],
+    "pays_production": [
+      "USA",
+      "Chine",
+      "Iran",
+      "Turquie",
+      "Inde"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 600.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "E"
+      ],
+      "mineraux": [
+        "magnesium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "6-12 mois",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Cardiovasculaire",
+      "satiete"
+    ],
+    "allergenes": [
+      "Fruits a coque (allergene majeur UE)"
+    ]
+  },
+  {
+    "nom": "kaki",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Coree",
+      "Japon",
+      "Bresil",
+      "Espagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 70.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "A",
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem. muri",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Vue",
+      "immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "kumquat",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mars"
+    ],
+    "pays_production": [
+      "Chine",
+      "Japon",
+      "USA",
+      "Israel",
+      "Bresil"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 71.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "calcium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2 sem.",
+      "duree_frigo": "2 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "mangue",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mai",
+      "septembre",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Inde",
+      "Chine",
+      "Thailande",
+      "Indonesie",
+      "Mexique"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 60.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "A",
+        "C"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "5-7 j mure",
+      "duree_frigo": "2 j",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Vue",
+      "immunite",
+      "transit"
+    ],
+    "allergenes": [
+      "Reaction croisee latex"
+    ]
+  },
+  {
+    "nom": "myrtille",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "USA",
+      "Canada",
+      "Pologne",
+      "Perou",
+      "Mexique"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 57.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 sem.",
+      "duree_frigo": "1-2 sem.",
+      "duree_congele": "12 mois"
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "vue",
+      "memoire"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "nectarine",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "juin",
+      "juillet",
+      "aout"
+    ],
+    "pays_production": [
+      "Chine",
+      "Italie",
+      "Espagne",
+      "USA",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 44.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "A"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "3-5 j mure",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "vue"
+    ],
+    "allergenes": [
+      "Syndrome oral (Rosacees, LTP)"
+    ]
+  },
+  {
+    "nom": "orange",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Bresil",
+      "Inde",
+      "Chine",
+      "Mexique",
+      "Espagne",
+      "USA"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 47.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 sem.",
+      "duree_frigo": "2-3 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "peche",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "juin",
+      "juillet",
+      "aout"
+    ],
+    "pays_production": [
+      "Chine",
+      "Italie",
+      "Espagne",
+      "USA",
+      "Grece"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 39.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "A"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "3-5 j mure",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "transit",
+      "peau"
+    ],
+    "allergenes": [
+      "Syndrome oral / LTP majeur (Rosacees)"
+    ]
+  },
+  {
+    "nom": "pomelo",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Vietnam",
+      "Thailande",
+      "Inde",
+      "Israel"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 38.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 sem.",
+      "duree_frigo": "2-3 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Interactions medicamenteuses (CYP3A4)"
+    ]
+  },
+  {
+    "nom": "prune",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "juin",
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Roumanie",
+      "Serbie",
+      "USA",
+      "Iran"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 46.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Syndrome oral"
+    ]
+  },
+  {
+    "nom": "raisin-noir",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre"
+    ],
+    "pays_production": [
+      "Italie",
+      "France",
+      "Espagne",
+      "Turquie",
+      "Chine"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 69.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": "5-7 j",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Cardiovasculaire",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "abricot",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "juin",
+      "juillet",
+      "aout"
+    ],
+    "pays_production": [
+      "Turquie",
+      "Iran",
+      "Ouzbekistan",
+      "Italie",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 48.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": "3-5 j",
+      "duree_congele": "6 mois"
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "sante oculaire",
+      "transit"
+    ],
+    "allergenes": [
+      "Syndrome oral (Rosacees, LTP)"
+    ]
+  },
+  {
+    "nom": "anone",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Perou",
+      "Espagne",
+      "Chili",
+      "Mexique"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 75.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "B6"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 j mure",
+      "duree_frigo": "5 j",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "immunite",
+      "digestion"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "banane",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Inde",
+      "Chine",
+      "Indonesie",
+      "Bresil",
+      "Equateur",
+      "Philippines"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 89.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "B6"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Energie",
+      "transit",
+      "recuperation musculaire"
+    ],
+    "allergenes": [
+      "Latex-fruit syndrome (rare)"
+    ]
+  },
+  {
+    "nom": "chataigne",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "septembre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Turquie",
+      "Italie",
+      "Espagne",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 196.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "manganese"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": "1 mois",
+      "duree_congele": "6 mois"
+    },
+    "bienfaits_sante": [
+      "Energie sans gluten",
+      "transit",
+      "mineraux"
+    ],
+    "allergenes": [
+      "Fruit a coque (etiquetage UE)"
+    ]
+  },
+  {
+    "nom": "clementine",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Espagne",
+      "Maroc",
+      "Chine",
+      "Italie",
+      "Algerie"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 47.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium",
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": "2 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP possible"
+    ]
+  },
+  {
+    "nom": "datte",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mai"
+    ],
+    "pays_production": [
+      "Egypte",
+      "Iran",
+      "Arabie saoudite",
+      "Algerie",
+      "Tunisie"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 282.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": 66.0,
+      "fibres_g": null,
+      "vitamines": [],
+      "mineraux": [
+        "potassium",
+        "magnesium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "6 mois",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Energie rapide",
+      "transit",
+      "mineraux"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "fraise",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout"
+    ],
+    "pays_production": [
+      "Chine",
+      "USA",
+      "Mexique",
+      "Egypte",
+      "Espagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 32.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "manganese"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "immunite",
+      "peau"
+    ],
+    "allergenes": [
+      "Histamino-liberateur frequent"
+    ]
+  },
+  {
+    "nom": "fruit-de-la-passion",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mai"
+    ],
+    "pays_production": [
+      "Bresil",
+      "Colombie",
+      "Perou",
+      "Equateur",
+      "Vietnam"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 97.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": 10.0,
+      "vitamines": [
+        "C",
+        "A"
+      ],
+      "mineraux": [
+        "fer"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": "1 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Latex-fruit syndrome possible"
+    ]
+  },
+  {
+    "nom": "grenade",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "septembre",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Inde",
+      "Iran",
+      "Chine",
+      "Turquie",
+      "Espagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 83.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 mois",
+      "duree_frigo": "1 mois",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "cardiovasculaire"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "kiwi",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Nouvelle-Zelande",
+      "Italie",
+      "Chine",
+      "Iran",
+      "Grece",
+      "Chili"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 61.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 sem.",
+      "duree_frigo": "1-2 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "transit",
+      "peau"
+    ],
+    "allergenes": [
+      "Allergene frequent (latex-fruit)"
+    ]
+  },
+  {
+    "nom": "mandarine",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "octobre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Espagne",
+      "Turquie",
+      "Bresil",
+      "Maroc"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 53.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "A"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2 sem.",
+      "duree_frigo": "2 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "melon",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Turquie",
+      "Iran",
+      "Inde",
+      "Espagne",
+      "Maroc"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 34.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "A",
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "5 j entier",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Hydratation",
+      "vue"
+    ],
+    "allergenes": [
+      "Syndrome oral (pollen ambroisie)"
+    ]
+  },
+  {
+    "nom": "nashi",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "septembre",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Coree",
+      "Japon",
+      "Australie",
+      "USA"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 42.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 sem.",
+      "duree_frigo": "1-2 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Hydratation",
+      "transit"
+    ],
+    "allergenes": [
+      "Syndrome oral (Rosacees)"
+    ]
+  },
+  {
+    "nom": "noix",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "novembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "USA",
+      "Iran",
+      "Turquie",
+      "Mexique"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 654.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [],
+      "mineraux": [
+        "magnesium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "6-12 mois en coque",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Cerveau",
+      "cardiovasculaire"
+    ],
+    "allergenes": [
+      "Fruits a coque (allergene majeur UE)"
+    ]
+  },
+  {
+    "nom": "pasteque",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Iran",
+      "Turquie",
+      "Inde",
+      "Bresil"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 30.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "A",
+        "C"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "7-10 j entiere",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Hydratation",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Syndrome oral"
+    ]
+  },
+  {
+    "nom": "poire",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "USA",
+      "Argentine",
+      "Italie",
+      "Espagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 57.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": 3.1,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "3-5 j mure",
+      "duree_frigo": "1-2 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "satiete",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Syndrome oral (Rosacees)"
+    ]
+  },
+  {
+    "nom": "pomme",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "USA",
+      "Turquie",
+      "Pologne",
+      "Italie"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 52.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": 2.4,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 mois",
+      "duree_frigo": "1-2 mois",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "cardiovasculaire",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Syndrome oral (Rosacees, LTP)"
+    ]
+  },
+  {
+    "nom": "raisin-blanc",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "aout",
+      "septembre",
+      "octobre"
+    ],
+    "pays_production": [
+      "Italie",
+      "France",
+      "Espagne",
+      "Turquie",
+      "Chine"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 69.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": "5-7 j",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "cardiovasculaire"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "litchi",
+    "categorie": "fruit",
+    "saisonnalite": [
+      "juin",
+      "juillet"
+    ],
+    "pays_production": [
+      "Chine",
+      "Inde",
+      "Thailande",
+      "Vietnam",
+      "Afrique du Sud"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 66.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 sem.",
+      "duree_frigo": "1-2 sem.",
+      "duree_congele": "3 mois"
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "artichaut",
+    "categorie": "legume",
+    "saisonnalite": [
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre"
+    ],
+    "pays_production": [
+      "Italie",
+      "Egypte",
+      "Espagne",
+      "Perou",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 47.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": 5.0,
+      "vitamines": [
+        "K"
+      ],
+      "mineraux": [
+        "magnesium",
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem. cru",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Foie",
+      "digestion",
+      "prebiotique"
+    ],
+    "allergenes": [
+      "Syndrome oral (Asteracees)"
+    ]
+  },
+  {
+    "nom": "aubergine",
+    "categorie": "legume",
+    "saisonnalite": [
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Inde",
+      "Egypte",
+      "Turquie",
+      "Iran"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 25.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "satiete"
+    ],
+    "allergenes": [
+      "Solanacees (rare)"
+    ]
+  },
+  {
+    "nom": "blette",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "mars",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "France",
+      "Italie",
+      "Espagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 19.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K",
+        "A",
+        "C"
+      ],
+      "mineraux": [
+        "magnesium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Os",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Riche en oxalates"
+    ]
+  },
+  {
+    "nom": "carotte",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Ouzbekistan",
+      "USA",
+      "Russie",
+      "Pologne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 41.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "A"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-4 sem.",
+      "duree_frigo": "2-4 sem.",
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Vue",
+      "peau",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Syndrome oral (Apiacees)"
+    ]
+  },
+  {
+    "nom": "champignon",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Italie",
+      "USA",
+      "Pays-Bas",
+      "Pologne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 22.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "B",
+        "D"
+      ],
+      "mineraux": [
+        "potassium",
+        "selenium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "vit. D"
+    ],
+    "allergenes": [
+      "Spores",
+      "rares"
+    ]
+  },
+  {
+    "nom": "choux-chinois",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Coree",
+      "Japon"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 13.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K",
+        "A"
+      ],
+      "mineraux": [
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "os"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "choux-fleur",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Inde",
+      "USA",
+      "Espagne",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 25.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "satiete",
+      "cerveau"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "choux-kale",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier"
+    ],
+    "pays_production": [
+      "USA",
+      "Chine",
+      "Italie",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 49.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K",
+        "A",
+        "C"
+      ],
+      "mineraux": [
+        "calcium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Os",
+      "vue",
+      "antioxydant"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "choux-rave",
+    "categorie": "legume",
+    "saisonnalite": [
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Allemagne",
+      "Inde",
+      "Chine",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 27.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "transit"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "choux-de-bruxelle",
+    "categorie": "legume",
+    "saisonnalite": [
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Pays-Bas",
+      "Royaume-Uni",
+      "France",
+      "USA",
+      "Mexique"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 43.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "transit"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "choux-frise",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "mars",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "USA",
+      "Chine",
+      "Italie",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 49.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K",
+        "C",
+        "A"
+      ],
+      "mineraux": [
+        "calcium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Os",
+      "antioxydant",
+      "vue"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "choux-lisse",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Inde",
+      "Russie",
+      "Coree",
+      "Pologne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 25.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "digestion"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "choux-romanesco",
+    "categorie": "legume",
+    "saisonnalite": [
+      "fevrier",
+      "septembre",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Italie",
+      "France",
+      "Espagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 25.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "transit"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "concombre",
+    "categorie": "legume",
+    "saisonnalite": [
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Turquie",
+      "Iran",
+      "Russie",
+      "Mexique"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 16.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Hydratation",
+      "faible cal"
+    ],
+    "allergenes": [
+      "LTP rare"
+    ]
+  },
+  {
+    "nom": "courge-butternut",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "USA",
+      "Chine",
+      "Inde",
+      "Mexique",
+      "Italie"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 45.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 mois entiere",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Vue",
+      "antioxydant"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "courgette",
+    "categorie": "legume",
+    "saisonnalite": [
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Inde",
+      "Russie",
+      "Mexique",
+      "Egypte"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 17.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K",
+        "B6"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Hydratation",
+      "faible cal"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "endive",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "mai",
+      "juin",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "France",
+      "Belgique",
+      "Pays-Bas"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 17.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K",
+        "A",
+        "B9"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Digestion",
+      "foie"
+    ],
+    "allergenes": [
+      "Asteracees (rare)"
+    ]
+  },
+  {
+    "nom": "epinard",
+    "categorie": "legume",
+    "saisonnalite": [
+      "fevrier",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "USA",
+      "Japon",
+      "Turquie",
+      "Indonesie"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 23.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K",
+        "A"
+      ],
+      "mineraux": [
+        "magnesium",
+        "fer",
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Anemie",
+      "os",
+      "vue"
+    ],
+    "allergenes": [
+      "Riche en oxalates"
+    ]
+  },
+  {
+    "nom": "fenouil",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Inde",
+      "Chine",
+      "Egypte",
+      "Italie",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 31.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Digestion",
+      "anti-ballonnement"
+    ],
+    "allergenes": [
+      "Apiacees (rare)"
+    ]
+  },
+  {
+    "nom": "feves",
+    "categorie": "legume",
+    "saisonnalite": [
+      "avril",
+      "mai"
+    ],
+    "pays_production": [
+      "Chine",
+      "Ethiopie",
+      "Royaume-Uni",
+      "France",
+      "Egypte"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 88.0,
+      "proteines_g": 8.0,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [],
+      "mineraux": [
+        "fer",
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Proteines vegetales",
+      "folates"
+    ],
+    "allergenes": [
+      "Favisme (G6PD)",
+      "legumineuses"
+    ]
+  },
+  {
+    "nom": "haricot",
+    "categorie": "legume",
+    "saisonnalite": [
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Indonesie",
+      "Inde",
+      "Turquie",
+      "Egypte"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 31.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": [
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Legumineuses"
+    ]
+  },
+  {
+    "nom": "mache",
+    "categorie": "legume",
+    "saisonnalite": [
+      "decembre"
+    ],
+    "pays_production": [
+      "France",
+      "Italie",
+      "Pays-Bas"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 21.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "B9"
+      ],
+      "mineraux": [
+        "fer"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "fer"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "mais",
+    "categorie": "legume",
+    "saisonnalite": [
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "USA",
+      "Chine",
+      "Bresil",
+      "Argentine",
+      "Ukraine"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 86.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "B"
+      ],
+      "mineraux": [
+        "magnesium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "3 j frais",
+      "duree_frigo": null,
+      "duree_congele": "6 mois"
+    },
+    "bienfaits_sante": [
+      "Energie",
+      "antioxydants"
+    ],
+    "allergenes": [
+      "Possible (graminees)",
+      "rare"
+    ]
+  },
+  {
+    "nom": "navet",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Russie",
+      "France",
+      "USA",
+      "Pologne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 28.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Faible cal",
+      "antioxydant"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "oignons",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout"
+    ],
+    "pays_production": [
+      "Chine",
+      "Inde",
+      "Egypte",
+      "USA",
+      "Iran"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 40.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 mois entier",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Cardiovasculaire",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Rares",
+      "FODMAP"
+    ]
+  },
+  {
+    "nom": "panais",
+    "categorie": "legume",
+    "saisonnalite": [
+      "octobre",
+      "novembre"
+    ],
+    "pays_production": [
+      "Royaume-Uni",
+      "USA",
+      "France",
+      "Allemagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 75.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": [
+        "potassium",
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "2-3 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Transit",
+      "energie douce"
+    ],
+    "allergenes": [
+      "Apiacees (rare)"
+    ]
+  },
+  {
+    "nom": "patate-douce",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Malawi",
+      "Tanzanie",
+      "Nigeria",
+      "Indonesie"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 86.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "3-4 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Vue",
+      "antioxydant",
+      "energie"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "poireau",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Indonesie",
+      "Turquie",
+      "Coree",
+      "France",
+      "Belgique"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 61.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K",
+        "A",
+        "C"
+      ],
+      "mineraux": [
+        "manganese"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Diuretique",
+      "transit"
+    ],
+    "allergenes": [
+      "Liliacees (rare)"
+    ]
+  },
+  {
+    "nom": "pois",
+    "categorie": "legume",
+    "saisonnalite": [
+      "mai",
+      "juin",
+      "juillet",
+      "aout"
+    ],
+    "pays_production": [
+      "Canada",
+      "Russie",
+      "Chine",
+      "Inde",
+      "USA"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 81.0,
+      "proteines_g": 5.0,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": [
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Proteines vegetales",
+      "transit"
+    ],
+    "allergenes": [
+      "Legumineuses"
+    ]
+  },
+  {
+    "nom": "poivrons",
+    "categorie": "legume",
+    "saisonnalite": [
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Mexique",
+      "Turquie",
+      "Indonesie",
+      "Espagne"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 31.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "A"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Immunite",
+      "antioxydant"
+    ],
+    "allergenes": [
+      "Solanacees (rare)"
+    ]
+  },
+  {
+    "nom": "pomme-de-terre",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Inde",
+      "Russie",
+      "Ukraine",
+      "USA"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 77.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "B6"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1-2 mois",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Energie",
+      "satiete"
+    ],
+    "allergenes": [
+      "Solanine (germes verts)",
+      "rares"
+    ]
+  },
+  {
+    "nom": "radis",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Japon",
+      "Coree",
+      "USA",
+      "France"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 16.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C"
+      ],
+      "mineraux": []
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "digestion"
+    ],
+    "allergenes": null
+  },
+  {
+    "nom": "salade",
+    "categorie": "legume",
+    "saisonnalite": [
+      "janvier",
+      "fevrier",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre",
+      "novembre",
+      "decembre"
+    ],
+    "pays_production": [
+      "Chine",
+      "USA",
+      "Inde",
+      "Espagne",
+      "Italie"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 15.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "K",
+        "A"
+      ],
+      "mineraux": [
+        "folates"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": null,
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Hydratation",
+      "faible cal"
+    ],
+    "allergenes": [
+      "Asteracees / LTP (rare)"
+    ]
+  },
+  {
+    "nom": "tomate",
+    "categorie": "legume",
+    "saisonnalite": [
+      "mai",
+      "juin",
+      "juillet",
+      "aout",
+      "septembre",
+      "octobre"
+    ],
+    "pays_production": [
+      "Chine",
+      "Inde",
+      "Turquie",
+      "USA",
+      "Egypte"
+    ],
+    "valeurs_nutritionnelles": {
+      "calories_kcal": 18.0,
+      "proteines_g": null,
+      "lipides_g": null,
+      "glucides_g": null,
+      "fibres_g": null,
+      "vitamines": [
+        "C",
+        "K"
+      ],
+      "mineraux": [
+        "potassium"
+      ]
+    },
+    "duree_conservation": {
+      "duree_ambiante": "1 sem.",
+      "duree_frigo": null,
+      "duree_congele": null
+    },
+    "bienfaits_sante": [
+      "Antioxydant",
+      "cardiovasculaire"
+    ],
+    "allergenes": [
+      "Solanacees",
+      "histamino-liberateur"
+    ]
+  }
+]
