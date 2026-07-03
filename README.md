@@ -23,7 +23,6 @@ backend/
 ## Lancer le serveur
 
     uv run uvicorn main:app --reload
-
 Le serveur écoute par défaut sur http://localhost:8000
 
 ## Vérifier la sonde de liveness
