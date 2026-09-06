@@ -45,11 +45,15 @@ Générée automatiquement par FastAPI, sans configuration supplémentaire :
 pyproject.toml et uv.lock sont mis à jour automatiquement — les deux
 doivent être committés.
 
-## Base de données (PostgreSQL + PostGIS)
+## Stack de dev isolée (PostgreSQL + backend)
 
-PostgreSQL tourne en conteneur (stratégie V1 : pas de service managé). Le
-`docker-compose.yml` à la racine démarre une base persistante avec l'extension
-PostGIS (cartographie du module Mobilité).
+Le `docker-compose.yml` à la racine démarre une stack **db + backend uniquement**
+(sans le service IA) pour développer le backend en isolation : PostgreSQL persistant
+avec PostGIS (stratégie V1 : pas de service managé) et l'API FastAPI en hot-reload
+(image `backend/Dockerfile.dev`, source montée en volume).
+
+> La stack applicative complète (backend + IA + gateway) vit dans le repo
+> infrastructure ; ce compose-ci ne sert qu'au dev backend.
 
 Démarrage :
 
@@ -58,8 +62,9 @@ Démarrage :
 
 Vérifier que la base est prête :
 
-    docker compose ps         # postgres doit être "healthy" (pg_isready)
+    docker compose ps         # postgres "healthy" (pg_isready), backend démarré
     docker compose exec postgres psql -U "$DB_USER" -d greener -c "SELECT postgis_version();"
+    curl http://localhost:8000/health   # {"status": "ok"}
 
 - Image officielle versionnée `postgis/postgis:16-3.4-alpine`.
 - Données persistées dans le volume nommé `pg_data` (survivent au redémarrage
@@ -79,4 +84,4 @@ Arrêter :
 
 - Aucune logique métier dans services/ et utils/ pour le moment
 - Pas de schéma applicatif ni de seed joués automatiquement
-- Pas de Dockerfile applicatif (le backend tourne encore sur l'hôte)
+- Pas de service IA dans ce compose (dev backend isolé ; stack complète dans le repo infra)
