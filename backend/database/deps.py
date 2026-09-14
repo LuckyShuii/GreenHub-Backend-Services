@@ -1,5 +1,5 @@
-# db/deps.py
-from backend.database.session import SessionLocal
+# database/deps.py
+from database.session import SessionLocal
 
 
 def get_db():
