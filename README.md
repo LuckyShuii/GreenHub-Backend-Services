@@ -3,12 +3,35 @@
 Base applicative FastAPI minimale, avec une route de santé et la
 documentation Swagger générée automatiquement.
 
+## Préfixe /api — mêmes URLs en local et en prod
+
+**Le backend porte lui-même le préfixe `/api`** : toutes les routes métier sont
+montées sous `/api` par l'application (`api_router` dans `main.py`), pas par un
+proxy. La gateway nginx de prod ne fait que router `/api/` vers le backend,
+**sans réécrire l'URL**.
+
+Conséquence : le chemin appelé par le front est identique partout, seul l'hôte
+change.
+
+| | base URL | exemple |
+|---|---|---|
+| dev (ce repo, `docker compose up`) | `http://localhost:8000` | `http://localhost:8000/api/...` |
+| dev stack complète (repo infra) | `http://localhost:8080` | `http://localhost:8080/api/...` |
+| production | `https://api.<domaine>` | `https://api.<domaine>/api/...` |
+
+`/health` est délibérément **hors** `/api` : c'est une sonde infra (healthcheck
+du conteneur et de la gateway), pas une route d'API.
+
+Ajouter une route métier = la monter sur `api_router`, jamais sur `app`
+directement, sinon elle sera injoignable derrière la gateway (qui ne route que
+`/api/`, `/ai/` et `/health`).
+
 ## Structure
 
 backend/
-├── main.py           # point d'entrée FastAPI, monte les routers
+├── main.py           # point d'entrée FastAPI, monte les routers sous /api
 ├── routers/
-│   └── health.py      # route GET /health
+│   └── health.py      # route GET /health (sonde infra, hors /api)
 ├── services/          # logique métier (à venir)
 ├── utils/             # fonctions utilitaires partagées (à venir)
 ├── pyproject.toml     # dépendances du projet
@@ -32,11 +55,12 @@ Le serveur écoute par défaut sur http://localhost:8000
 
 ## Documentation Swagger
 
-Générée automatiquement par FastAPI, sans configuration supplémentaire :
+Générée automatiquement par FastAPI, servie sous `/api` comme le reste de l'API
+(donc joignable à l'identique derrière la gateway) :
 
-- http://localhost:8000/docs — Swagger UI interactif (tester les routes depuis le navigateur)
-- http://localhost:8000/redoc — documentation alternative (ReDoc)
-- http://localhost:8000/openapi.json — schéma OpenAPI brut
+- http://localhost:8000/api/docs — Swagger UI interactif (tester les routes depuis le navigateur)
+- http://localhost:8000/api/redoc — documentation alternative (ReDoc)
+- http://localhost:8000/api/openapi.json — schéma OpenAPI brut
 
 ## Ajouter une dépendance
 
@@ -53,7 +77,9 @@ avec PostGIS (stratégie V1 : pas de service managé) et l'API FastAPI en hot-re
 (image `backend/Dockerfile.dev`, source montée en volume).
 
 > La stack applicative complète (backend + IA + gateway) vit dans le repo
-> infrastructure ; ce compose-ci ne sert qu'au dev backend.
+> infrastructure ; ce compose-ci ne sert qu'au dev backend. Pas de gateway ici :
+> elle serait inutile puisque le backend sert déjà `/api` lui-même (voir plus
+> haut) — les chemins sont donc les mêmes que sur la stack complète et en prod.
 
 Démarrage :
 
@@ -65,6 +91,7 @@ Vérifier que la base est prête :
     docker compose ps         # postgres "healthy" (pg_isready), backend démarré
     docker compose exec postgres psql -U "$DB_USER" -d greener -c "SELECT postgis_version();"
     curl http://localhost:8000/health   # {"status": "ok"}
+    open http://localhost:8000/api/docs  # les routes métier, telles que le front les appellera
 
 - Image officielle versionnée `postgis/postgis:16-3.4-alpine`.
 - Données persistées dans le volume nommé `pg_data` (survivent au redémarrage
