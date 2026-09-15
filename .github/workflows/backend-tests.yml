@@ -1,0 +1,78 @@
+name: Tests backend
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+  workflow_dispatch:
+
+# Une nouvelle poussee sur une PR annule le run precedent encore en cours.
+concurrency:
+  group: backend-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: pytest (unitaires + integration)
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    services:
+      postgres:
+        # Meme image que docker-compose.yml : les tests d'integration
+        # doivent voir la meme version de PostgreSQL et de PostGIS qu'en dev.
+        image: postgis/postgis:16-3.4-alpine
+        env:
+          POSTGRES_USER: greener
+          POSTGRES_PASSWORD: greener
+          POSTGRES_DB: greener_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U greener -d greener_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      # Lu par tests/integration/conftest.py. Le nom se termine par
+      # `_test`, sans quoi le garde-fou de la suite refuse de demarrer.
+      TEST_DATABASE_URL: >-
+        postgresql+psycopg2://greener:greener@localhost:5432/greener_test
+      # Version figee par backend/.python-version, identique aux Dockerfiles.
+      UV_PYTHON: "3.12"
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Installer uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+
+      - name: Installer les dependances
+        # --frozen : echoue si uv.lock ne correspond plus a pyproject.toml,
+        # plutot que de resoudre silencieusement d'autres versions.
+        run: uv sync --frozen
+
+      - name: Lancer la suite de tests
+        # CI=true fait echouer les tests d'integration si la base est
+        # injoignable, au lieu de les ignorer comme en local.
+        env:
+          CI: "true"
+        run: uv run pytest
+
+      - name: Publier le rapport de couverture
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: couverture-backend
+          path: backend/coverage.xml
+          if-no-files-found: warn
+          retention-days: 14

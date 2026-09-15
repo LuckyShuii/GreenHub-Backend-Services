@@ -7,3 +7,9 @@ venv/
 .pytest_cache/
 .uv-cache/
 
+# Rapports de couverture (regeneres a chaque run de pytest)
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
