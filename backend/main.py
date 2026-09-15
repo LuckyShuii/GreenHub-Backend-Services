@@ -1,6 +1,6 @@
 from fastapi import APIRouter, FastAPI
 
-from routers import health
+from routers import auth_router, health
 
 API_PREFIX = "/api"
 
@@ -16,6 +16,7 @@ app = FastAPI(
 # The app owns /api, so paths are identical locally and behind the prod gateway
 # (which routes without rewriting). Mount business routers here.
 api_router = APIRouter(prefix=API_PREFIX)
+api_router.include_router(auth_router.router)
 
 app.include_router(api_router)
 

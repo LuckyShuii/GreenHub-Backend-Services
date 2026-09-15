@@ -12,7 +12,8 @@ config = context.config
 
 # Injecte l'URL construite depuis config/settings.py (DB_HOST, DB_USER, etc.)
 # plutôt que de dépendre de la valeur statique dans alembic.ini
-config.set_main_option("sqlalchemy.url", str(_database_url))
+database_url = _database_url.render_as_string(hide_password=False)
+config.set_main_option("sqlalchemy.url", database_url.replace("%", "%%"))
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
