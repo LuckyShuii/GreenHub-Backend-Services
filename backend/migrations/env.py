@@ -11,8 +11,12 @@ from database.session import _database_url
 config = context.config
 
 # Injecte l'URL construite depuis config/settings.py (DB_HOST, DB_USER, etc.)
-# plutôt que de dépendre de la valeur statique dans alembic.ini
-database_url = _database_url.render_as_string(hide_password=False)
+# plutôt que de dépendre de la valeur statique dans alembic.ini.
+# Un appelant programmatique (les tests d'intégration) peut imposer sa
+# propre URL via config.attributes pour migrer la base de test.
+database_url = config.attributes.get("sqlalchemy_url") or (
+    _database_url.render_as_string(hide_password=False)
+)
 config.set_main_option("sqlalchemy.url", database_url.replace("%", "%%"))
 
 # Interpret the config file for Python logging.

@@ -4,3 +4,10 @@ __pycache__/
 .pytest_cache/
 .uv-cache/
 .env
+
+# La suite de tests et ses rapports n'ont rien a faire dans l'image
+tests/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/

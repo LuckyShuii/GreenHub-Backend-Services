@@ -11,6 +11,7 @@ backend/
 │   └── health.py      # route GET /health
 ├── services/          # logique métier (à venir)
 ├── utils/             # fonctions utilitaires partagées (à venir)
+├── tests/             # suite pytest (unit/ et integration/)
 ├── pyproject.toml     # dépendances du projet
 ├── uv.lock             # lockfile figé (généré par uv sync)
 └── .gitignore
@@ -37,6 +38,32 @@ Générée automatiquement par FastAPI, sans configuration supplémentaire :
 - http://localhost:8000/docs — Swagger UI interactif (tester les routes depuis le navigateur)
 - http://localhost:8000/redoc — documentation alternative (ReDoc)
 - http://localhost:8000/openapi.json — schéma OpenAPI brut
+
+## Tests
+
+Depuis votre machine (nécessite `.env` renseigné et la base lancée) :
+
+    docker compose up -d postgres
+    cd backend
+    uv run pytest                    # 90 tests, suite complète + couverture
+    uv run pytest -m unit --no-cov   # unitaires seuls, ~3 s, sans base
+
+Ou directement depuis le conteneur, sans rien installer localement :
+
+    docker compose up -d
+    docker compose exec backend pytest
+
+Les tests d'intégration tournent sur une base dédiée `greener_test`,
+créée automatiquement, **jamais** sur `greener`. Sans base joignable ils
+sont ignorés en local (avec un message expliquant quoi faire) et en échec
+en CI.
+
+Comment lancer les tests, conventions de nommage, découpage
+unitaire/intégration et cible de couverture :
+[backend/tests/README.md](backend/tests/README.md).
+
+La CI (`.github/workflows/backend-tests.yml`) rejoue la suite complète
+sur chaque PR vers `main` et `staging`, PostGIS compris.
 
 ## Ajouter une dépendance
 
