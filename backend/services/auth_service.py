@@ -10,6 +10,10 @@ class EmailAlreadyUsedError(Exception):
     """L'inscription cible une adresse e-mail deja enregistree."""
 
 
+class UsernameAlreadyUsedError(Exception):
+    """L'inscription cible un pseudonyme deja enregistre."""
+
+
 class AuthService:
     def __init__(self, db: Session):
         self._users = UserRepository(db)
@@ -17,6 +21,8 @@ class AuthService:
     def register(self, payload: UserCreate) -> User:
         if self._users.get_by_email(payload.email) is not None:
             raise EmailAlreadyUsedError()
+        if self._users.get_by_pseudonyme(payload.pseudonyme) is not None:
+            raise UsernameAlreadyUsedError()
 
         user = User(
             prenom=payload.prenom,

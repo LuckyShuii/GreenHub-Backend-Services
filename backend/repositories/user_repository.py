@@ -10,3 +10,10 @@ class UserRepository(BaseRepository[User]):
 
     def get_by_email(self, email: str) -> User | None:
         return self.db.query(User).filter(User.email == email).first()
+
+    def get_by_pseudonyme(self, pseudonyme: str) -> User | None:
+        return (
+            self.db.query(User)
+            .filter(User.pseudonyme == pseudonyme)
+            .first()
+        )
