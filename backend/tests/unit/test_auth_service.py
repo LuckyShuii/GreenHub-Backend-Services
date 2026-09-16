@@ -11,7 +11,11 @@ import pytest
 from models.user_model import User
 from schemas.user_schema import UserCreate
 from services import auth_service as auth_service_module
-from services.auth_service import AuthService, EmailAlreadyUsedError
+from services.auth_service import (
+    AuthService,
+    EmailAlreadyUsedError,
+    UsernameAlreadyUsedError,
+)
 from utils.security import verify_password
 
 pytestmark = pytest.mark.unit
@@ -28,6 +32,12 @@ class FauxUserRepository:
     def get_by_email(self, email: str) -> User | None:
         return next(
             (u for u in self.utilisateurs if u.email == email), None
+        )
+
+    def get_by_pseudonyme(self, pseudonyme: str) -> User | None:
+        return next(
+            (u for u in self.utilisateurs if u.pseudonyme == pseudonyme),
+            None,
         )
 
     def create(self, obj: User) -> User:
@@ -110,14 +120,56 @@ def test_register_n_ecrit_rien_si_l_email_est_deja_pris(
     assert len(depot.utilisateurs) == 1
 
 
-def test_register_accepte_deux_emails_differents(
+def test_register_refuse_un_pseudonyme_deja_utilise(
+    service: AuthService, payload_inscription: dict
+):
+    """Le pseudonyme est unique en base : le service le refuse avant.
+
+    Sans ce garde-fou, l'insertion partirait jusqu'a PostgreSQL et
+    remonterait une IntegrityError au lieu d'un 409 lisible.
+    """
+    service.register(UserCreate(**payload_inscription))
+
+    with pytest.raises(UsernameAlreadyUsedError):
+        service.register(
+            UserCreate(
+                **{**payload_inscription, "email": "grace@example.com"}
+            )
+        )
+
+
+def test_register_n_ecrit_rien_si_le_pseudonyme_est_deja_pris(
     service: AuthService,
     depot: FauxUserRepository,
     payload_inscription: dict,
 ):
     service.register(UserCreate(**payload_inscription))
+
+    with pytest.raises(UsernameAlreadyUsedError):
+        service.register(
+            UserCreate(
+                **{**payload_inscription, "email": "grace@example.com"}
+            )
+        )
+
+    assert len(depot.utilisateurs) == 1
+
+
+def test_register_accepte_deux_utilisateurs_distincts(
+    service: AuthService,
+    depot: FauxUserRepository,
+    payload_inscription: dict,
+):
+    """E-mail *et* pseudonyme differents : les deux doivent passer."""
+    service.register(UserCreate(**payload_inscription))
     service.register(
-        UserCreate(**{**payload_inscription, "email": "grace@example.com"})
+        UserCreate(
+            **{
+                **payload_inscription,
+                "email": "grace@example.com",
+                "pseudonyme": "grace",
+            }
+        )
     )
 
     assert len(depot.utilisateurs) == 2

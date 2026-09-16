@@ -99,12 +99,38 @@ def test_deux_utilisateurs_distincts_sont_acceptes(
     db_session: Session,
     payload_inscription: dict,
 ):
+    """Distincts sur les deux champs uniques : e-mail *et* pseudonyme."""
     client_api.post(URL, json=payload_inscription)
     client_api.post(
-        URL, json={**payload_inscription, "email": "grace@example.com"}
+        URL,
+        json={
+            **payload_inscription,
+            "email": "grace@example.com",
+            "pseudonyme": "grace",
+        },
     )
 
     assert len(UserRepository(db_session).get_all()) == 2
+
+
+def test_pseudonyme_deja_pris_est_refuse(
+    client_api: TestClient,
+    db_session: Session,
+    payload_inscription: dict,
+):
+    """La contrainte unique sur `pseudonyme` (0002) est bien appliquee.
+
+    Le second appel ne differe que par l'e-mail : c'est le pseudonyme qui
+    doit le faire echouer, en 409 et sans rien ecrire.
+    """
+    client_api.post(URL, json=payload_inscription)
+
+    reponse = client_api.post(
+        URL, json={**payload_inscription, "email": "grace@example.com"}
+    )
+
+    assert reponse.status_code == 409
+    assert len(UserRepository(db_session).get_all()) == 1
 
 
 def test_payload_invalide_n_ecrit_rien_en_base(

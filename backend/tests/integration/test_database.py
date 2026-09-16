@@ -26,14 +26,20 @@ def test_postgis_est_active(db_session: Session):
     assert version
 
 
-def test_les_migrations_sont_appliquees(moteur: Engine):
+def test_les_migrations_sont_appliquees(moteur: Engine, revision_head: str):
+    """La base porte bien la derniere revision de `migrations/`.
+
+    On compare a la tete calculee par Alembic, pas a un numero ecrit en
+    dur : une migration ajoutee mais non jouee fait echouer le test,
+    sans qu'il faille le reprendre a chaque nouvelle revision.
+    """
     revision = None
     with moteur.connect() as connexion:
         revision = connexion.execute(
             text("SELECT version_num FROM alembic_version")
         ).scalar()
 
-    assert revision == "0001_create_users"
+    assert revision == revision_head
 
 
 def test_la_table_users_existe_avec_ses_colonnes(moteur: Engine):

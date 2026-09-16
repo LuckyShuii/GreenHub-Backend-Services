@@ -22,6 +22,7 @@ from pathlib import Path
 import pytest
 from alembic import command
 from alembic.config import Config
+from alembic.script import ScriptDirectory
 from dotenv import dotenv_values
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine, make_url, text
@@ -129,16 +130,33 @@ def _creer_base_si_absente(url: URL) -> None:
         moteur.dispose()
 
 
-def _appliquer_migrations(url: URL) -> None:
+def _config_alembic() -> Config:
     config = Config(str(RACINE_BACKEND / "alembic.ini"))
     config.set_main_option(
         "script_location", str(RACINE_BACKEND / "migrations")
     )
+    return config
+
+
+def _appliquer_migrations(url: URL) -> None:
+    config = _config_alembic()
     # Lu par migrations/env.py, qui prime sur l'URL de `database.session`.
     config.attributes["sqlalchemy_url"] = url.render_as_string(
         hide_password=False
     )
     command.upgrade(config, "head")
+
+
+@pytest.fixture(scope="session")
+def revision_head() -> str:
+    """Derniere revision declaree par les fichiers de `migrations/`.
+
+    Calculee par Alembic plutot qu'ecrite en dur : les tests n'ont pas a
+    etre repris a chaque nouvelle migration. Si plusieurs tetes existent
+    (deux migrations sur le meme parent, apres un merge), Alembic leve
+    une erreur ici -- c'est le bug a corriger, pas le test.
+    """
+    return ScriptDirectory.from_config(_config_alembic()).get_current_head()
 
 
 @pytest.fixture(scope="session")

@@ -15,7 +15,10 @@ from database.deps import get_db
 from main import app
 from models.user_model import User
 from routers import auth_router as auth_router_module
-from services.auth_service import EmailAlreadyUsedError
+from services.auth_service import (
+    EmailAlreadyUsedError,
+    UsernameAlreadyUsedError,
+)
 
 pytestmark = pytest.mark.unit
 
@@ -127,7 +130,32 @@ def test_email_deja_utilise_renvoie_409(
     reponse = client.post(URL, json=payload_inscription)
 
     assert reponse.status_code == 409
-    assert "deja utilisee" in reponse.json()["detail"]
+    assert (
+        reponse.json()["detail"]
+        == "Cette adresse e-mail est déjà utilisée."
+    )
+
+
+def test_pseudonyme_deja_utilise_renvoie_409(
+    client: TestClient,
+    monkeypatch: pytest.MonkeyPatch,
+    payload_inscription: dict,
+):
+    """Le conflit de pseudonyme a son propre message, pas celui de l'e-mail.
+
+    Les deux cas sortent en 409 : sans message distinct, le front ne peut
+    pas dire a l'utilisateur quel champ corriger.
+    """
+
+    def register(_):
+        raise UsernameAlreadyUsedError()
+
+    _brancher_service(monkeypatch, register)
+
+    reponse = client.post(URL, json=payload_inscription)
+
+    assert reponse.status_code == 409
+    assert reponse.json()["detail"] == "Ce pseudonyme est déjà utilisé."
 
 
 def test_payload_invalide_renvoie_422_sans_appeler_le_service(
