@@ -16,7 +16,7 @@ class User(Base):
     email: Mapped[str] = mapped_column(
         String(255), unique=True, index=True, nullable=False
     )
-    pseudonyme: Mapped[str] = mapped_column(String(50), nullable=False)
+    pseudonyme: Mapped[str] = mapped_column(String(50), nullable=False, unique=True)
     localisation: Mapped[str | None] = mapped_column(String(255), nullable=True)
     mot_de_passe_hache: Mapped[str] = mapped_column(String(255), nullable=False)
     date_creation: Mapped[datetime] = mapped_column(
