@@ -3,6 +3,66 @@ name = "greener-api"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
+    "alembic>=1.18.5",
     "fastapi==0.115.0",
+    "email-validator>=2.2.0",
+    "psycopg2-binary>=2.9.12",
+    "pydantic-settings>=2.14.2",
+    "sqlalchemy>=2.0.0",
     "uvicorn[standard]==0.30.6",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28",
+    "pytest>=8.3",
+    "pytest-asyncio>=1.0",
+    "pytest-cov>=6.0",
+    "python-dotenv>=1.0",
+]
+
+[tool.pytest.ini_options]
+# Les modules applicatifs sont importes a plat (`from routers import ...`) :
+# la racine du package est backend/, donc pytest doit l'avoir dans sys.path.
+pythonpath = ["."]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+# strict : un test async doit porter @pytest.mark.asyncio explicitement.
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"
+
+# Un marqueur inconnu ou une option inconnue casse la CI plutot que de
+# passer inapercu.
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--import-mode=importlib",
+    "--cov=.",
+    "--cov-report=term-missing",
+    "--cov-report=xml",
+    "--cov-fail-under=90",
+]
+
+markers = [
+    "unit: test isole, sans I/O (ni base de donnees, ni reseau)",
+    "integration: test necessitant une vraie base PostgreSQL/PostGIS",
+]
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "tests/*",
+    # Jouees par Alembic, pas par la suite de tests.
+    "migrations/*",
+]
+
+[tool.coverage.report]
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
 ]

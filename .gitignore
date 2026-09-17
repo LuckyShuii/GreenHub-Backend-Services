@@ -8,3 +8,10 @@ venv/
 .uv-cache/
 .DS_Store
 .idea/
+
+# Rapports de couverture (regeneres a chaque run de pytest)
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
