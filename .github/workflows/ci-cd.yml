@@ -104,7 +104,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./backend
-          file: ./backend/Dockerfile
+          file: ./backend/Dockerfile.prod
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
