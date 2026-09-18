@@ -107,7 +107,8 @@ jobs:
           file: ./backend/Dockerfile.prod
           push: true
           tags: |
-            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:backend-${{ github.sha::7 }}
+            ${{ env.IMAGE_NAME }}:backend-latest
 
   deploy:
     name: Déclencher le déploiement VPS
