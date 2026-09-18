@@ -133,5 +133,5 @@ jobs:
             --request POST \
             --header "X-Deploy-Token: ${VPS_DEPLOY_KEY}" \
             --header "Content-Type: application/json" \
-            --data "{\"version\":\"${GITHUB_SHA}\"}" \
+            --data "{\"version\":\"latest\"}" \
             "https://${DEPLOY_HOST}/hooks/deploy-${DEPLOY_SERVICE}"
