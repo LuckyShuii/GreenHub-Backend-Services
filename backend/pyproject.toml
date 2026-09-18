@@ -19,6 +19,7 @@ dev = [
     "pytest-asyncio>=1.0",
     "pytest-cov>=6.0",
     "python-dotenv>=1.0",
+    "ruff>=0.16.8",
 ]
 
 [tool.pytest.ini_options]
