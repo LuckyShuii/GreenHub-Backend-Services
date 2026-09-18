@@ -97,6 +97,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Extract commit SHA
+        id: vars
+        run: echo "SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
       - name: Configurer Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -107,7 +111,7 @@ jobs:
           file: ./backend/Dockerfile.prod
           push: true
           tags: |
-            ${{ env.IMAGE_NAME }}:backend-${{ github.sha::7 }}
+            ${{ env.IMAGE_NAME }}:backend-${{ steps.vars.outputs.SHA_SHORT }}
             ${{ env.IMAGE_NAME }}:backend-latest
 
   deploy:
