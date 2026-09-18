@@ -1,4 +1,4 @@
-line-length = 79
+line-length = 100
 indent-width = 4
 
 target-version = "py312"
@@ -33,4 +33,4 @@ section-order = [
 ]
 
 [lint.pycodestyle]
-max-line-length = 79
+max-line-length = 100
