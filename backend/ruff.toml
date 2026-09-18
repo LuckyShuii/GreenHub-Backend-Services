@@ -1,0 +1,36 @@
+line-length = 79
+indent-width = 4
+
+target-version = "py312"
+
+[format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+skip-magic-trailing-comma = false
+
+[lint]
+select = [
+    "E",      # pycodestyle / PEP 8
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes
+    "I",      # isort
+    "N",      # pep8-naming
+]
+
+# Keep imports grouped:
+# 1. stdlib
+# 2. third-party
+# 3. local
+[lint.isort]
+known-first-party = ["app"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[lint.pycodestyle]
+max-line-length = 79
