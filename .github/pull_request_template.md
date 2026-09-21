@@ -62,7 +62,7 @@ Le code backend doit respecter **PEP8**.
 Principales règles :
 
 - indentation : **4 espaces**
-- longueur de ligne : **79 caractères maximum**
+- longueur de ligne : **100 caractères maximum**
 - noms de fichiers : `snake_case.py`
 - classes : `PascalCase`
 - fonctions / variables : `snake_case`
