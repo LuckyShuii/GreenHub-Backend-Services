@@ -4,12 +4,9 @@ on:
   push:
     branches:
       - main
+      - staging
     tags:
       - "*"
-  pull_request:
-    branches:
-      - main
-      - staging
   workflow_dispatch:
 
 # Une nouvelle poussée sur une PR annule le run précédent encore en cours.
