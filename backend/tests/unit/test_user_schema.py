@@ -1,6 +1,7 @@
 """Tests unitaires de validation des schemas Pydantic utilisateur."""
 
 from datetime import UTC, datetime
+from uuid import UUID
 
 import pytest
 from pydantic import ValidationError
@@ -14,7 +15,7 @@ class TestUserCreate:
     def test_accepte_un_payload_valide(self, payload_inscription: dict):
         utilisateur = UserCreate(**payload_inscription)
 
-        assert utilisateur.prenom == "Ada"
+        assert utilisateur.first_name == "Ada"
         assert utilisateur.email == "ada@example.com"
         assert utilisateur.mot_de_passe == "MotDePasse1!"
 
@@ -39,9 +40,9 @@ class TestUserCreate:
 
         utilisateur = UserCreate(**payload_inscription)
 
-        assert utilisateur.prenom == "Ada"
-        assert utilisateur.nom == "Lovelace"
-        assert utilisateur.pseudonyme == "ada"
+        assert utilisateur.first_name == "Ada"
+        assert utilisateur.last_name == "Lovelace"
+        assert utilisateur.username == "ada"
 
     @pytest.mark.parametrize(
         "champ",
@@ -55,7 +56,12 @@ class TestUserCreate:
         with pytest.raises(ValidationError) as erreur:
             UserCreate(**payload_inscription)
 
-        assert champ in str(erreur.value)
+        nom_canonique = {
+            "prenom": "first_name",
+            "nom": "last_name",
+            "pseudonyme": "username",
+        }.get(champ, champ)
+        assert nom_canonique in str(erreur.value)
 
     @pytest.mark.parametrize(
         "email",
@@ -122,18 +128,19 @@ class TestUserRead:
         """`from_attributes` permet de renvoyer directement le modele."""
 
         class UtilisateurFactice:
-            id = 1
-            prenom = "Ada"
-            nom = "Lovelace"
+            id = UUID("00000000-0000-0000-0000-000000000001")
+            first_name = "Ada"
+            last_name = "Lovelace"
             email = "ada@example.com"
-            pseudonyme = "ada"
-            localisation = None
-            mot_de_passe_hache = "pbkdf2_sha256$200000$aa$bb"
-            date_creation = datetime(2026, 1, 1, tzinfo=UTC)
+            username = "ada"
+            date_of_birth = None
+            postal_code = None
+            password_hash = "pbkdf2_sha256$200000$aa$bb"
+            created_at = datetime(2026, 1, 1, tzinfo=UTC)
 
         lecture = UserRead.model_validate(UtilisateurFactice())
 
-        assert lecture.id == 1
+        assert lecture.id == UUID("00000000-0000-0000-0000-000000000001")
         assert lecture.email == "ada@example.com"
 
     def test_n_expose_jamais_le_mot_de_passe(self):
@@ -141,4 +148,4 @@ class TestUserRead:
         champs = UserRead.model_fields
 
         assert "mot_de_passe" not in champs
-        assert "mot_de_passe_hache" not in champs
+        assert "password_hash" not in champs

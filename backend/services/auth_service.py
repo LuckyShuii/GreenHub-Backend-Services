@@ -1,3 +1,5 @@
+from re import fullmatch
+
 from sqlalchemy.orm import Session
 
 from models.user_model import User
@@ -21,15 +23,21 @@ class AuthService:
     def register(self, payload: UserCreate) -> User:
         if self._users.get_by_email(payload.email) is not None:
             raise EmailAlreadyUsedError()
-        if self._users.get_by_pseudonyme(payload.pseudonyme) is not None:
+        if self._users.get_by_username(payload.username) is not None:
             raise UsernameAlreadyUsedError()
 
+        postal_code = payload.postal_code
+        if postal_code is None and payload.localisation:
+            if fullmatch(r"\d{5}", payload.localisation):
+                postal_code = payload.localisation
+
         user = User(
-            prenom=payload.prenom,
-            nom=payload.nom,
+            first_name=payload.first_name,
+            last_name=payload.last_name,
             email=payload.email,
-            pseudonyme=payload.pseudonyme,
-            localisation=payload.localisation,
-            mot_de_passe_hache=hash_password(payload.mot_de_passe),
+            username=payload.username,
+            date_of_birth=payload.date_of_birth,
+            postal_code=postal_code,
+            password_hash=hash_password(payload.mot_de_passe),
         )
         return self._users.create(user)
