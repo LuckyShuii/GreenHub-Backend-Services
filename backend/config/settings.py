@@ -26,6 +26,9 @@ class Settings(BaseSettings):
     DB_USER: str | None = None
     DB_PASSWORD: str | None = None
 
+    # Access-token signing key: same rule, required only when a token is issued or checked.
+    JWT_SECRET_KEY: str | None = None
+
 
 @lru_cache
 def get_settings() -> Settings:
