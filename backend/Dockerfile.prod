@@ -8,14 +8,20 @@ COPY pyproject.toml uv.lock ./
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --no-dev --frozen --no-install-project
 
+
 FROM python:3.12-slim
+
 WORKDIR /greener
 COPY --from=builder /greener/.venv /greener/.venv
+
 COPY . .
 ENV PATH="/greener/.venv/bin:$PATH"
 
 EXPOSE 8000
 HEALTHCHECK --interval=10s --timeout=5s --start-period=15s --retries=5 \
     CMD python -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health').status == 200 else 1)"
+
+RUN chmod +x run-migrations.sh
+ENTRYPOINT ["./run-migrations.sh"]
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
