@@ -4,6 +4,8 @@ Les lectures produisent du vrai SQL : c'est ici, et pas en unitaire, que
 la contrainte d'unicite et le comportement de l'index sont verifiables.
 """
 
+from uuid import UUID
+
 import pytest
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -16,12 +18,11 @@ pytestmark = pytest.mark.integration
 
 def _utilisateur(email: str = "ada@example.com", **surcharges) -> User:
     champs = {
-        "prenom": "Ada",
-        "nom": "Lovelace",
+        "first_name": "Ada",
+        "last_name": "Lovelace",
         "email": email,
-        "pseudonyme": "ada",
-        "localisation": "Paris",
-        "mot_de_passe_hache": "pbkdf2_sha256$200000$aa$bb",
+        "username": "ada",
+        "password_hash": "pbkdf2_sha256$200000$aa$bb",
     }
     champs.update(surcharges)
     return User(**champs)
@@ -42,8 +43,8 @@ def test_create_remplit_la_date_de_creation(depot: UserRepository):
     """`server_default=now()` : la valeur vient de PostgreSQL."""
     utilisateur = depot.create(_utilisateur())
 
-    assert utilisateur.date_creation is not None
-    assert utilisateur.date_creation.tzinfo is not None
+    assert utilisateur.created_at is not None
+    assert utilisateur.created_at.tzinfo is not None
 
 
 def test_get_retrouve_l_utilisateur_par_identifiant(
@@ -57,7 +58,7 @@ def test_get_retrouve_l_utilisateur_par_identifiant(
 def test_get_renvoie_none_pour_un_identifiant_inconnu(
     depot: UserRepository,
 ):
-    assert depot.get(999_999) is None
+    assert depot.get(UUID("00000000-0000-0000-0000-000000000099")) is None
 
 
 def test_get_by_email_retrouve_l_utilisateur(depot: UserRepository):
@@ -66,7 +67,7 @@ def test_get_by_email_retrouve_l_utilisateur(depot: UserRepository):
     trouve = depot.get_by_email("ada@example.com")
 
     assert trouve is not None
-    assert trouve.pseudonyme == "ada"
+    assert trouve.username == "ada"
 
 
 def test_get_by_email_renvoie_none_si_absent(depot: UserRepository):
@@ -115,11 +116,11 @@ def test_update_persiste_la_modification(
 ):
     utilisateur = depot.create(_utilisateur())
 
-    utilisateur.pseudonyme = "ada_l"
+    utilisateur.username = "ada_l"
     depot.update(utilisateur)
     db_session.expire_all()
 
-    assert depot.get(utilisateur.id).pseudonyme == "ada_l"
+    assert depot.get(utilisateur.id).username == "ada_l"
 
 
 def test_delete_supprime_l_utilisateur(depot: UserRepository):

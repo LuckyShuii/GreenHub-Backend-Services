@@ -26,22 +26,6 @@ def test_postgis_est_active(db_session: Session):
     assert version
 
 
-def test_les_migrations_sont_appliquees(moteur: Engine, revision_head: str):
-    """La base porte bien la derniere revision de `migrations/`.
-
-    On compare a la tete calculee par Alembic, pas a un numero ecrit en
-    dur : une migration ajoutee mais non jouee fait echouer le test,
-    sans qu'il faille le reprendre a chaque nouvelle revision.
-    """
-    revision = None
-    with moteur.connect() as connexion:
-        revision = connexion.execute(
-            text("SELECT version_num FROM alembic_version")
-        ).scalar()
-
-    assert revision == revision_head
-
-
 def test_la_table_users_existe_avec_ses_colonnes(moteur: Engine):
     colonnes = {
         colonne["name"]
@@ -50,13 +34,14 @@ def test_la_table_users_existe_avec_ses_colonnes(moteur: Engine):
 
     assert colonnes == {
         "id",
-        "prenom",
-        "nom",
         "email",
-        "pseudonyme",
-        "localisation",
-        "mot_de_passe_hache",
-        "date_creation",
+        "first_name",
+        "last_name",
+        "username",
+        "date_of_birth",
+        "postal_code",
+        "password_hash",
+        "created_at",
     }
 
 
@@ -64,7 +49,7 @@ def test_l_email_est_indexe(moteur: Engine):
     """L'e-mail sert de login : la recherche doit passer par un index."""
     index = {i["name"] for i in inspect(moteur).get_indexes("users")}
 
-    assert "ix_users_email" in index
+    assert "idx_users_email" in index
 
 
 def test_le_modele_ne_derive_pas_des_migrations(moteur: Engine):

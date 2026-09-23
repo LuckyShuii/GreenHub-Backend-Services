@@ -6,6 +6,8 @@ en memoire. Ce qui est teste ici est la logique metier (detection du
 doublon, hachage, mapping des champs), pas le SQL.
 """
 
+from uuid import UUID
+
 import pytest
 
 from models.user_model import User
@@ -27,22 +29,20 @@ class FauxUserRepository:
     def __init__(self, db=None):
         self.db = db
         self.utilisateurs: list[User] = []
-        self._prochain_id = 1
 
     def get_by_email(self, email: str) -> User | None:
         return next(
             (u for u in self.utilisateurs if u.email == email), None
         )
 
-    def get_by_pseudonyme(self, pseudonyme: str) -> User | None:
+    def get_by_username(self, username: str) -> User | None:
         return next(
-            (u for u in self.utilisateurs if u.pseudonyme == pseudonyme),
+            (u for u in self.utilisateurs if u.username == username),
             None,
         )
 
     def create(self, obj: User) -> User:
-        obj.id = self._prochain_id
-        self._prochain_id += 1
+        obj.id = UUID("00000000-0000-0000-0000-000000000001")
         self.utilisateurs.append(obj)
         return obj
 
@@ -68,12 +68,11 @@ def test_register_renvoie_l_utilisateur_cree(
 ):
     utilisateur = service.register(user_create)
 
-    assert utilisateur.id == 1
-    assert utilisateur.prenom == "Ada"
-    assert utilisateur.nom == "Lovelace"
+    assert utilisateur.id is not None
+    assert utilisateur.first_name == "Ada"
+    assert utilisateur.last_name == "Lovelace"
     assert utilisateur.email == "ada@example.com"
-    assert utilisateur.pseudonyme == "ada"
-    assert utilisateur.localisation == "Paris"
+    assert utilisateur.username == "ada"
 
 
 def test_register_persiste_l_utilisateur(
@@ -91,9 +90,9 @@ def test_register_hache_le_mot_de_passe(
 ):
     utilisateur = service.register(user_create)
 
-    assert utilisateur.mot_de_passe_hache != user_create.mot_de_passe
+    assert utilisateur.password_hash != user_create.mot_de_passe
     assert verify_password(
-        user_create.mot_de_passe, utilisateur.mot_de_passe_hache
+        user_create.mot_de_passe, utilisateur.password_hash
     )
 
 

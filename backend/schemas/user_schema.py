@@ -1,13 +1,41 @@
-from datetime import datetime
+from datetime import date, datetime
+from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
+from pydantic import (
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    EmailStr,
+    Field,
+    field_validator,
+)
 
 
 class UserCreate(BaseModel):
-    prenom: str = Field(min_length=1, max_length=100)
-    nom: str = Field(min_length=1, max_length=100)
+    first_name: str = Field(
+        min_length=1,
+        max_length=100,
+        validation_alias=AliasChoices("first_name", "prenom"),
+    )
+    last_name: str = Field(
+        min_length=1,
+        max_length=100,
+        validation_alias=AliasChoices("last_name", "nom"),
+    )
     email: EmailStr = Field(max_length=255)
-    pseudonyme: str = Field(min_length=1, max_length=50)
+    username: str = Field(
+        min_length=1,
+        max_length=50,
+        validation_alias=AliasChoices("username", "pseudonyme"),
+    )
+    date_of_birth: date | None = None
+    postal_code: str | None = Field(
+        default=None,
+        min_length=5,
+        max_length=5,
+        pattern=r"^\d{5}$",
+        validation_alias=AliasChoices("postal_code", "code_postal"),
+    )
     localisation: str | None = Field(default=None, max_length=255)
     mot_de_passe: str = Field(min_length=12, max_length=128)
 
@@ -26,7 +54,7 @@ class UserCreate(BaseModel):
             )
         return value
 
-    @field_validator("prenom", "nom", "pseudonyme")
+    @field_validator("first_name", "last_name", "username")
     @classmethod
     def _nettoyer(cls, value: str) -> str:
         return value.strip()
@@ -40,10 +68,13 @@ class UserCreate(BaseModel):
 class UserRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    id: int
-    prenom: str
-    nom: str
+    id: UUID
+    first_name: str = Field(serialization_alias="prenom")
+    last_name: str = Field(serialization_alias="nom")
     email: EmailStr
-    pseudonyme: str
-    localisation: str | None
-    date_creation: datetime
+    username: str = Field(serialization_alias="pseudonyme")
+    date_of_birth: date | None = Field(serialization_alias="date_naissance")
+    postal_code: str | None = Field(serialization_alias="code_postal")
+    created_at: datetime = Field(serialization_alias="date_creation")
+
+    model_config = ConfigDict(from_attributes=True, serialize_by_alias=True)

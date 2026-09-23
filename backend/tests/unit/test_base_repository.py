@@ -46,11 +46,11 @@ def depot(session: SessionEspion) -> BaseRepository[User]:
 @pytest.fixture
 def utilisateur() -> User:
     return User(
-        prenom="Ada",
-        nom="Lovelace",
+        first_name="Ada",
+        last_name="Lovelace",
         email="ada@example.com",
-        pseudonyme="ada",
-        mot_de_passe_hache="pbkdf2_sha256$200000$aa$bb",
+        username="ada",
+        password_hash="pbkdf2_sha256$200000$aa$bb",
     )
 
 

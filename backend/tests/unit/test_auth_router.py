@@ -7,6 +7,7 @@ reel par les tests d'integration.
 """
 
 from datetime import UTC, datetime
+from uuid import UUID
 
 import pytest
 from fastapi.testclient import TestClient
@@ -35,14 +36,15 @@ def sans_base_de_donnees():
 
 def _utilisateur_enregistre(payload: dict) -> User:
     return User(
-        id=1,
-        prenom=payload["prenom"],
-        nom=payload["nom"],
+        id=UUID("00000000-0000-0000-0000-000000000001"),
+        first_name=payload["prenom"],
+        last_name=payload["nom"],
         email=payload["email"],
-        pseudonyme=payload["pseudonyme"],
-        localisation=payload.get("localisation"),
-        mot_de_passe_hache="pbkdf2_sha256$200000$aa$bb",
-        date_creation=datetime(2026, 1, 1, tzinfo=UTC),
+        username=payload["pseudonyme"],
+        date_of_birth=None,
+        postal_code=None,
+        password_hash="pbkdf2_sha256$200000$aa$bb",
+        created_at=datetime(2026, 1, 1, tzinfo=UTC),
     )
 
 
@@ -90,10 +92,10 @@ def test_inscription_reussie_renvoie_l_utilisateur_sans_mot_de_passe(
 
     corps = client.post(URL, json=payload_inscription).json()
 
-    assert corps["id"] == 1
+    assert corps["id"] == "00000000-0000-0000-0000-000000000001"
     assert corps["email"] == "ada@example.com"
     assert "mot_de_passe" not in corps
-    assert "mot_de_passe_hache" not in corps
+    assert "password_hash" not in corps
 
 
 def test_le_service_recoit_le_payload_valide(

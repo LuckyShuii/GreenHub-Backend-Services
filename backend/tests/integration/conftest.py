@@ -6,8 +6,8 @@ Cible de la base de test, par ordre de priorite :
 2. les variables `DB_*` de l'environnement (conteneur backend) ;
 3. le `.env` a la racine du depot, mais sur la base `greener_test`.
 
-Le schema est cree en jouant les migrations Alembic : une migration
-oubliee fait echouer la suite, ce qu'un `create_all()` masquerait.
+Le schema est cree en jouant le bootstrap SQL canonique, comme en
+developpement sur une base initialisee depuis zero.
 
 Chaque test s'execute dans une transaction annulee a la fin (les
 `commit()` des repositories deviennent des SAVEPOINT), donc la base reste
@@ -19,10 +19,8 @@ import re
 from collections.abc import Iterator
 from pathlib import Path
 
+import psycopg2
 import pytest
-from alembic import command
-from alembic.config import Config
-from alembic.script import ScriptDirectory
 from dotenv import dotenv_values
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine, make_url, text
@@ -33,7 +31,6 @@ from sqlalchemy.orm import Session, sessionmaker
 from database.deps import get_db
 from main import app
 
-# backend/ : contient alembic.ini et migrations/
 RACINE_BACKEND = Path(__file__).resolve().parents[2]
 RACINE_DEPOT = RACINE_BACKEND.parent
 
@@ -130,33 +127,23 @@ def _creer_base_si_absente(url: URL) -> None:
         moteur.dispose()
 
 
-def _config_alembic() -> Config:
-    config = Config(str(RACINE_BACKEND / "alembic.ini"))
-    config.set_main_option(
-        "script_location", str(RACINE_BACKEND / "migrations")
+def _initialiser_schema(url: URL) -> None:
+    script = (RACINE_DEPOT / "database" / "init" / "01-postgis.sql").read_text(
+        encoding="utf-8"
     )
-    return config
-
-
-def _appliquer_migrations(url: URL) -> None:
-    config = _config_alembic()
-    # Lu par migrations/env.py, qui prime sur l'URL de `database.session`.
-    config.attributes["sqlalchemy_url"] = url.render_as_string(
-        hide_password=False
+    connexion = psycopg2.connect(
+        url.set(drivername="postgresql").render_as_string(
+            hide_password=False
+        )
     )
-    command.upgrade(config, "head")
-
-
-@pytest.fixture(scope="session")
-def revision_head() -> str:
-    """Derniere revision declaree par les fichiers de `migrations/`.
-
-    Calculee par Alembic plutot qu'ecrite en dur : les tests n'ont pas a
-    etre repris a chaque nouvelle migration. Si plusieurs tetes existent
-    (deux migrations sur le meme parent, apres un merge), Alembic leve
-    une erreur ici -- c'est le bug a corriger, pas le test.
-    """
-    return ScriptDirectory.from_config(_config_alembic()).get_current_head()
+    try:
+        with connexion:
+            with connexion.cursor() as curseur:
+                curseur.execute("DROP SCHEMA public CASCADE")
+                curseur.execute("CREATE SCHEMA public")
+                curseur.execute(script)
+    finally:
+        connexion.close()
 
 
 @pytest.fixture(scope="session")
@@ -168,14 +155,7 @@ def moteur() -> Iterator[Engine]:
     try:
         _creer_base_si_absente(url)
         moteur_test = create_engine(url, pool_pre_ping=True)
-        with moteur_test.begin() as connexion:
-            # PostGIS est installe par database/init/ dans le compose ;
-            # en CI le service demarre sans ce script, d'ou la creation
-            # explicite ici.
-            connexion.execute(
-                text("CREATE EXTENSION IF NOT EXISTS postgis")
-            )
-        _appliquer_migrations(url)
+        _initialiser_schema(url)
     except SQLAlchemyError as erreur:
         _abandonner(url, erreur)
 

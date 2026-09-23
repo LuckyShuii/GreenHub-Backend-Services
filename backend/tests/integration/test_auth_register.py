@@ -42,9 +42,9 @@ def test_inscription_stocke_le_mot_de_passe_hache(
     enregistre = UserRepository(db_session).get_by_email(
         "ada@example.com"
     )
-    assert enregistre.mot_de_passe_hache != "MotDePasse1!"
+    assert enregistre.password_hash != "MotDePasse1!"
     assert verify_password(
-        "MotDePasse1!", enregistre.mot_de_passe_hache
+        "MotDePasse1!", enregistre.password_hash
     )
 
 
