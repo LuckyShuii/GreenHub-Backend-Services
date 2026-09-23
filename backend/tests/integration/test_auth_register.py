@@ -28,7 +28,7 @@ def test_inscription_cree_l_utilisateur_en_base(
         "ada@example.com"
     )
     assert enregistre is not None
-    assert enregistre.id == reponse.json()["id"]
+    assert str(enregistre.id) == reponse.json()["id"]
 
 
 def test_inscription_stocke_le_mot_de_passe_hache(

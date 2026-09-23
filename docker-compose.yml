@@ -38,6 +38,7 @@ services:
       DB_PORT: "5432"
     volumes:
       - ./backend:/greener
+      - ./database:/database:ro
     ports:
       - "127.0.0.1:8000:8000"
     networks:

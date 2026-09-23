@@ -87,7 +87,7 @@ def test_get_by_email_est_sensible_a_la_casse(depot: UserRepository):
 
 def test_get_all_renvoie_les_utilisateurs_crees(depot: UserRepository):
     depot.create(_utilisateur("ada@example.com"))
-    depot.create(_utilisateur("grace@example.com", pseudonyme="grace"))
+    depot.create(_utilisateur("grace@example.com", username="grace"))
 
     emails = {u.email for u in depot.get_all()}
 
@@ -106,7 +106,7 @@ def test_l_email_est_unique_en_base(
     depot.create(_utilisateur())
 
     with pytest.raises(IntegrityError):
-        depot.create(_utilisateur(pseudonyme="autre"))
+        depot.create(_utilisateur(username="autre"))
 
     db_session.rollback()
 
