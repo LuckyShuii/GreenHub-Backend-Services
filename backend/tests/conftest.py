@@ -10,8 +10,17 @@ from collections.abc import Iterator
 import pytest
 from fastapi.testclient import TestClient
 
+from config.settings import settings
 from main import app
 from schemas.user_schema import UserCreate
+
+
+@pytest.fixture(autouse=True)
+def cle_jwt_de_test(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Cle de signature factice : aucun test ne depend du `.env` local."""
+    monkeypatch.setattr(
+        settings, "JWT_SECRET_KEY", "cle-de-test-uniquement-" + "x" * 48
+    )
 
 
 @pytest.fixture
