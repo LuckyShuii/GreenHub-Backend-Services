@@ -54,9 +54,9 @@ CREATE INDEX idx_users_email ON users (email);
 -- ---------------------------------------------------------------------------
 -- 2. SESSIONS
 -- ---------------------------------------------------------------------------
--- One user can have multiple active sessions (phone + tablet + web).
+-- One user has one active session per device in this schema.
 -- refresh_token_hash stores a SHA-256 of the refresh token, never the raw token.
--- revoked defaults to false; set to true on logout or token rotation.
+-- revoked defaults to false; set to true on logout or expiry.
 CREATE TABLE sessions (
     id                  UUID         PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id             UUID         NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -64,7 +64,9 @@ CREATE TABLE sessions (
     device_info         VARCHAR(255),
     created_at          TIMESTAMPTZ  NOT NULL DEFAULT now(),
     expires_at          TIMESTAMPTZ  NOT NULL,
-    revoked             BOOLEAN      NOT NULL DEFAULT false
+    revoked             BOOLEAN      NOT NULL DEFAULT false,
+
+    CONSTRAINT uq_sessions_user_device UNIQUE (user_id, device_info)
 );
 
 CREATE INDEX idx_sessions_user_id ON sessions (user_id);
