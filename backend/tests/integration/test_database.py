@@ -10,6 +10,7 @@ from sqlalchemy import inspect, text
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session
 
+from models.session_model import UserSession
 from models.user_model import User
 
 pytestmark = pytest.mark.integration
@@ -61,6 +62,33 @@ def test_le_modele_ne_derive_pas_des_migrations(moteur: Engine):
     reelles = {
         colonne["name"]
         for colonne in inspect(moteur).get_columns("users")
+    }
+
+    assert attendues == reelles
+
+
+def test_la_table_sessions_existe_avec_ses_colonnes(moteur: Engine):
+    colonnes = {
+        colonne["name"]
+        for colonne in inspect(moteur).get_columns("sessions")
+    }
+
+    assert colonnes == {
+        "id",
+        "user_id",
+        "refresh_token_hash",
+        "device_info",
+        "created_at",
+        "expires_at",
+        "revoked",
+    }
+
+
+def test_le_modele_session_ne_derive_pas_du_schema(moteur: Engine):
+    attendues = {colonne.name for colonne in UserSession.__table__.columns}
+    reelles = {
+        colonne["name"]
+        for colonne in inspect(moteur).get_columns("sessions")
     }
 
     assert attendues == reelles
