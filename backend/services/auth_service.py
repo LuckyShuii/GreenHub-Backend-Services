@@ -1,7 +1,6 @@
 import secrets
 from datetime import UTC, datetime
 from functools import cache
-from re import fullmatch
 from uuid import UUID
 
 from sqlalchemy.orm import Session
@@ -11,7 +10,7 @@ from models.user_model import User
 from repositories.session_repository import SessionRepository
 from repositories.user_repository import UserRepository
 from schemas.auth_schema import LoginRequest, TokenResponse
-from schemas.user_schema import UserCreate
+from schemas.user_schema import PasswordChange, UserCreate, UserUpdate
 from utils.security import (
     ACCESS_TOKEN_TTL,
     REFRESH_TOKEN_TTL,
@@ -55,21 +54,41 @@ class AuthService:
         if self._users.get_by_username(payload.username) is not None:
             raise UsernameAlreadyUsedError()
 
-        postal_code = payload.postal_code
-        if postal_code is None and payload.localisation:
-            if fullmatch(r"\d{5}", payload.localisation):
-                postal_code = payload.localisation
-
         user = User(
             first_name=payload.first_name,
             last_name=payload.last_name,
             email=payload.email,
             username=payload.username,
             date_of_birth=payload.date_of_birth,
-            postal_code=postal_code,
+            postal_code=payload.postal_code,
             password_hash=hash_password(payload.mot_de_passe),
         )
         return self._users.create(user)
+
+    def update_profile(self, user: User, payload: UserUpdate) -> User:
+        updates = payload.model_dump(exclude_unset=True)
+        email = updates.get("email")
+        if email is not None and email != user.email:
+            existing_user = self._users.get_by_email(str(email))
+            if existing_user is not None and existing_user.id != user.id:
+                raise EmailAlreadyUsedError()
+
+        username = updates.get("username")
+        if username is not None and username != user.username:
+            existing_user = self._users.get_by_username(username)
+            if existing_user is not None and existing_user.id != user.id:
+                raise UsernameAlreadyUsedError()
+
+        for field_name, value in updates.items():
+            setattr(user, field_name, value)
+        return self._users.update(user)
+
+    def change_password(self, user: User, payload: PasswordChange) -> None:
+        user.password_hash = hash_password(payload.new_password)
+        self._users.update(user)
+
+    def delete_account(self, user: User) -> None:
+        self._users.delete(user)
 
     def login(self, payload: LoginRequest) -> TokenResponse:
         user = self._users.get_by_email(payload.email)

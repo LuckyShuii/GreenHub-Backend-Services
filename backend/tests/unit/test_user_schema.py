@@ -6,7 +6,7 @@ from uuid import UUID
 import pytest
 from pydantic import ValidationError
 
-from schemas.user_schema import UserCreate, UserRead
+from schemas.user_schema import UserCreate, UserRead, UserUpdate
 
 pytestmark = pytest.mark.unit
 
@@ -19,10 +19,19 @@ class TestUserCreate:
         assert utilisateur.email == "ada@example.com"
         assert utilisateur.mot_de_passe == "MotDePasse1!"
 
-    def test_localisation_est_optionnelle(self, payload_inscription: dict):
-        del payload_inscription["localisation"]
+    def test_code_postal_est_optionnel(self, payload_inscription: dict):
+        del payload_inscription["code_postal"]
 
-        assert UserCreate(**payload_inscription).localisation is None
+        assert UserCreate(**payload_inscription).postal_code is None
+
+    @pytest.mark.parametrize("code_postal", ["1234", "123456", "12A45"])
+    def test_refuse_un_code_postal_invalide(
+        self, payload_inscription: dict, code_postal: str
+    ):
+        payload_inscription["code_postal"] = code_postal
+
+        with pytest.raises(ValidationError):
+            UserCreate(**payload_inscription)
 
     def test_normalise_l_email_en_minuscules(
         self, payload_inscription: dict
@@ -121,6 +130,29 @@ class TestUserCreate:
 
         with pytest.raises(ValidationError):
             UserCreate(**payload_inscription)
+
+
+class TestUserUpdate:
+    @pytest.mark.parametrize("field_name", ["username", "pseudonyme"])
+    def test_normalise_le_pseudonyme(self, field_name: str):
+        update = UserUpdate(**{field_name: "  nouveau_pseudo  "})
+
+        assert update.model_dump(exclude_unset=True) == {
+            "username": "nouveau_pseudo"
+        }
+
+    @pytest.mark.parametrize("username", [None, "", "   ", "a" * 51])
+    def test_refuse_un_pseudonyme_invalide(self, username: str | None):
+        with pytest.raises(ValidationError):
+            UserUpdate(username=username)
+
+    def test_accepte_un_pseudonyme_de_50_caracteres(self):
+        assert UserUpdate(username="a" * 50).username == "a" * 50
+
+    def test_le_pseudonyme_peut_etre_omis(self):
+        assert "username" not in UserUpdate(
+            first_name="Ada"
+        ).model_dump(exclude_unset=True)
 
 
 class TestUserRead:

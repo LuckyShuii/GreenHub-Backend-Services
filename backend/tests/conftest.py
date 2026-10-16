@@ -50,7 +50,7 @@ def payload_inscription() -> dict:
         "nom": "Lovelace",
         "email": "ada@example.com",
         "pseudonyme": "ada",
-        "localisation": "Paris",
+        "code_postal": "75000",
         "mot_de_passe": "MotDePasse1!",
     }
 

@@ -10,7 +10,7 @@ from schemas.auth_schema import (
     RefreshTokenRequest,
     TokenResponse,
 )
-from schemas.user_schema import UserCreate, UserRead
+from schemas.user_schema import PasswordChange, UserCreate, UserRead, UserUpdate
 from services.auth_service import (
     AuthService,
     EmailAlreadyUsedError,
@@ -87,3 +87,40 @@ def logout(payload: RefreshTokenRequest, db: Session = Depends(get_db)) -> None:
 @router.get("/me", response_model=UserRead)
 def me(current_user: User = Depends(get_current_user)) -> UserRead:
     return current_user
+
+
+@router.patch("/me", response_model=UserRead)
+def update_me(
+    payload: UserUpdate,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> UserRead:
+    try:
+        return AuthService(db).update_profile(current_user, payload)
+    except EmailAlreadyUsedError:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Cette adresse e-mail est déjà utilisée.",
+        )
+    except UsernameAlreadyUsedError:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Ce pseudonyme est déjà utilisé.",
+        )
+
+
+@router.post("/me/password", status_code=status.HTTP_204_NO_CONTENT)
+def change_my_password(
+    payload: PasswordChange,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> None:
+    AuthService(db).change_password(current_user, payload)
+
+
+@router.delete("/me", status_code=status.HTTP_204_NO_CONTENT)
+def delete_me(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> None:
+    AuthService(db).delete_account(current_user)

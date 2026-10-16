@@ -14,7 +14,7 @@ import pytest
 from models.session_model import UserSession
 from models.user_model import User
 from schemas.auth_schema import LoginRequest
-from schemas.user_schema import UserCreate
+from schemas.user_schema import PasswordChange, UserCreate, UserUpdate
 from services import auth_service as auth_service_module
 from services.auth_service import (
     AuthService,
@@ -54,6 +54,12 @@ class FauxUserRepository:
         obj.id = UUID("00000000-0000-0000-0000-000000000001")
         self.utilisateurs.append(obj)
         return obj
+
+    def update(self, obj: User) -> User:
+        return obj
+
+    def delete(self, obj: User) -> None:
+        self.utilisateurs.remove(obj)
 
 
 class FauxSessionRepository:
@@ -134,6 +140,7 @@ def test_register_renvoie_l_utilisateur_cree(
     assert utilisateur.last_name == "Lovelace"
     assert utilisateur.email == "ada@example.com"
     assert utilisateur.username == "ada"
+    assert utilisateur.postal_code == "75000"
 
 
 def test_register_persiste_l_utilisateur(
@@ -155,6 +162,93 @@ def test_register_hache_le_mot_de_passe(
     assert verify_password(
         user_create.mot_de_passe, utilisateur.password_hash
     )
+
+
+def test_update_profile_normalise_et_persiste_les_champs(
+    service: AuthService, inscrit: User
+):
+    utilisateur = service.update_profile(
+        inscrit,
+        UserUpdate(
+            first_name="  Grace ",
+            username="  grace  ",
+            email=" GRACE@EXAMPLE.COM ",
+            postal_code=" 69000 ",
+        ),
+    )
+
+    assert utilisateur.first_name == "Grace"
+    assert utilisateur.username == "grace"
+    assert utilisateur.email == "grace@example.com"
+    assert utilisateur.postal_code == "69000"
+
+
+def test_update_profile_refuse_un_email_deja_utilise(
+    service: AuthService,
+    depot: FauxUserRepository,
+    inscrit: User,
+    payload_inscription: dict,
+):
+    autre = User(
+        id=uuid4(),
+        first_name="Grace",
+        last_name="Hopper",
+        email="grace@example.com",
+        username="grace",
+        date_of_birth=None,
+        postal_code=None,
+        password_hash="hash",
+        created_at=datetime(2026, 1, 1, tzinfo=UTC),
+    )
+    depot.utilisateurs.append(autre)
+
+    with pytest.raises(EmailAlreadyUsedError):
+        service.update_profile(inscrit, UserUpdate(email=autre.email))
+
+
+def test_update_profile_accepte_le_pseudonyme_inchange(
+    service: AuthService, inscrit: User
+):
+    updated = service.update_profile(inscrit, UserUpdate(username="ada"))
+
+    assert updated.username == "ada"
+
+
+def test_update_profile_refuse_un_pseudonyme_deja_utilise_sans_mutation(
+    service: AuthService, depot: FauxUserRepository, inscrit: User
+):
+    depot.utilisateurs.append(
+        User(id=uuid4(), username="grace", email="grace@example.com")
+    )
+
+    with pytest.raises(UsernameAlreadyUsedError):
+        service.update_profile(
+            inscrit, UserUpdate(first_name="Grace", username="grace")
+        )
+
+    assert inscrit.username == "ada"
+    assert inscrit.first_name == "Ada"
+
+
+def test_change_password_verifie_le_mot_de_passe_actuel(
+    service: AuthService, inscrit: User
+):
+    service.change_password(
+        inscrit,
+        PasswordChange(new_password="NouveauMotDePasse2!"),
+    )
+
+    assert verify_password("NouveauMotDePasse2!", inscrit.password_hash)
+
+
+def test_delete_account_supprime_l_utilisateur_du_depot(
+    service: AuthService,
+    depot: FauxUserRepository,
+    inscrit: User,
+):
+    service.delete_account(inscrit)
+
+    assert inscrit not in depot.utilisateurs
 
 
 def test_register_refuse_un_email_deja_utilise(
