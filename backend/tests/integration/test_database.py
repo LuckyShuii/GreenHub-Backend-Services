@@ -1,7 +1,7 @@
 """Verifie que la base de test est bien celle attendue par l'app.
 
 Si ces tests echouent, ceux qui suivent sont ininterpretables : ils
-valident le socle (PostGIS active, schema migre) avant la logique.
+    valident le socle (PostGIS active, schema SQL initialise) avant la logique.
 """
 
 import pytest
@@ -53,10 +53,10 @@ def test_l_email_est_indexe(moteur: Engine):
     assert "idx_users_email" in index
 
 
-def test_le_modele_ne_derive_pas_des_migrations(moteur: Engine):
+def test_le_modele_correspond_au_schema_sql(moteur: Engine):
     """Colonnes declarees en SQLAlchemy == colonnes reellement en base.
 
-    Detecte l'oubli classique : un champ ajoute au modele sans migration.
+    Detecte un ecart entre le modele et le bootstrap SQL canonique.
     """
     attendues = {colonne.name for colonne in User.__table__.columns}
     reelles = {
