@@ -67,7 +67,7 @@ def _url_base_de_test() -> URL:
 
 
 def _verifier_cible(url: URL) -> None:
-    """Garde-fou : refuse de migrer autre chose qu'une base de test.
+    """Garde-fou : refuse d'initialiser autre chose qu'une base de test.
 
     Sans cela, un `TEST_DATABASE_URL` mal copie ferait tourner la suite
     sur la base de developpement, dont les donnees seraient alterees.
@@ -148,7 +148,7 @@ def _initialiser_schema(url: URL) -> None:
 
 @pytest.fixture(scope="session")
 def moteur() -> Iterator[Engine]:
-    """Engine sur la base de test, migree une seule fois par session."""
+    """Engine sur la base de test, initialisee une fois par session."""
     url = _url_base_de_test()
     _verifier_cible(url)
 

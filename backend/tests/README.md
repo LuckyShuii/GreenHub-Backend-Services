@@ -103,8 +103,9 @@ Un garde-fou refuse de démarrer si le nom de la base ne se termine pas par
 `_test` : un `TEST_DATABASE_URL` mal copié ne peut pas altérer la base de
 dev.
 
-Le schéma est créé en jouant les **migrations Alembic**, pas un
-`create_all()` : une migration oubliée fait échouer la suite.
+Le schéma est créé en exécutant le SQL canonique
+`database/init/01-postgis.sql`. Le test de cohérence compare les colonnes
+de ce schéma aux modèles SQLAlchemy.
 
 Chaque test tourne dans une transaction annulée à la fin (les `commit()`
 des repositories deviennent des `SAVEPOINT`). La base est donc vide au
@@ -184,7 +185,7 @@ le mode automatique masque les tests async qu'on a oublié de faire tourner.
 | `services/` | unitaire (repository simulé) | c'est la logique métier qu'on isole |
 | `routers/` | unitaire (service simulé) | on ne teste que le contrat HTTP : codes, corps, validation |
 | `repositories/` | intégration | ce sont des adaptateurs SQL : les simuler ne prouverait rien |
-| migrations, contraintes, PostGIS | intégration | seul PostgreSQL peut les valider |
+| schéma SQL, contraintes, PostGIS | intégration | seul PostgreSQL peut les valider |
 | parcours complet HTTP → base | intégration | le seul niveau qui prouve que la chaîne tient |
 
 Les lectures de `BaseRepository` (`get`, `get_all`) ne sont **pas**
@@ -205,8 +206,7 @@ Mesurée par `pytest-cov`, configurée dans `pyproject.toml`.
 Le seuil est volontairement proche du réel : un plancher très bas laisse
 la couverture s'éroder pendant des mois sans que rien n'échoue.
 
-Exclus du calcul (`[tool.coverage.run] omit`) : `tests/` et `migrations/`
-(jouées par Alembic, pas par la suite).
+Exclus du calcul (`[tool.coverage.run] omit`) : `tests/`.
 
 Le seuil suppose la **suite complète**. Pour ne lancer qu'une partie,
 désactivez la couverture : `uv run pytest -m unit --no-cov`.

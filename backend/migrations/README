@@ -1,1 +1,14 @@
-Generic single-database configuration.
+Alembic starts from a baseline for databases initialized by
+../database/init/01-postgis.sql. The baseline is a checkpoint only; it does
+not recreate or alter that canonical schema.
+
+For a new database, Docker initializes the schema from the canonical SQL,
+then the backend records the baseline with `alembic upgrade head`.
+
+For an existing database that still records a removed location revision,
+verify that its schema matches the canonical SQL, then run once:
+
+    alembic stamp --purge 20261009_base
+
+Future revisions must descend from `20261009_base` and should be applied with
+`alembic upgrade head`.
