@@ -390,11 +390,12 @@ CREATE TABLE questions (
 -- 17. ANSWERS
 -- ---------------------------------------------------------------------------
 -- Each question has 1..N answer choices. Exactly one should have is_correct = true.
--- points determines how much XP a correct answer is worth (5 or 10).
+-- points determines how much XP a correct answer is worth.
 CREATE TABLE answers (
     id           UUID    PRIMARY KEY DEFAULT gen_random_uuid(),
     question_id  UUID    NOT NULL REFERENCES questions(id) ON DELETE CASCADE,
     body         TEXT    NOT NULL,
+    comment      TEXT,
     is_correct   BOOLEAN NOT NULL DEFAULT false,
     points       INTEGER NOT NULL DEFAULT 0,
 
